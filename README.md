@@ -2,21 +2,21 @@
 Algoritimo de Criptografia RSA desenvolvido em Pyhton.
 Entrada com um caracter ASCII, saída com mensagem cifrada e chave pública e privada.
 
-# Lógia
-## Escolha dois valores primos diferentes:
-P = 3
-Q = 7
-## Equação N
+## Lógica
+### Escolha dois valores primos diferentes:
+> P = 3
+> Q = 7
+##$ Equação N
 N = P * Q = 3 * 7 = 21
-## Equação PHI(Toteliente) -> Núcleo do RSA
+##$ Equação PHI(Toteliente) -> Núcleo do RSA
 PHI(N) = (P - 1) * (Q - 1) = (3 - 1) * (7 - 1) = 2 * 6 = 12
-## Agora escolhemos o valor E, sendo que o mesmo tem que ser um valor primo e co-primo,
+##$ Agora escolhemos o valor E, sendo que o mesmo tem que ser um valor primo e co-primo,
 podemos fazer isso de duas formas, sendo:
 MDC(E, PHI(N)) = 1
 Ou:
 1 mod (PHI(N))
-##Esta segunda regra é mais na mão, porém mais simples de entender:
-###Obj:
+##$ Esta segunda regra é mais na mão, porém mais simples de entender:
+### Obj:
 - Valor não pode ser primo
 - Valor tem que ser fatorado
 - Se a fatoração der mais de dois valores, junte a vontade os valores até somente
@@ -32,8 +32,8 @@ desta forma temos o valor E e D de uma vez, sendo que o D é o valor inversament
 multiplicável de E.
 E = 5
 D = 5
-## Agora vamos criptografar um valor, Ex: oi -> [14, 9]
-## Equação para criptografar: C = M ^ E mod (N), sendo:
+### Agora vamos criptografar um valor, Ex: oi -> [14, 9]
+### Equação para criptografar: C = M ^ E mod (N), sendo:
 C = valor a encontrar -> Valor RSA
 M = Valor do caractere atual
 E = Valor descoberto acima
@@ -41,7 +41,7 @@ C = 14 ^ 5 mod (21) = 537824 mod (21) = 537824 % 21 = 14
 C = 9 ^ 5 mod (21) = 59049 mod (21) = 59049 % 21 = 18
 OI de [14, 9] foi convertido para [14, 18]-> Valores não variam muito por que os valores
 utilizados na equação foram muito baixos
-## Descriptografar
+### Descriptografar
 M = C ^ D mod (N)
 M = Valor resultante do descriptografar
 C = Valor RSA
